@@ -8,11 +8,8 @@
 	<meta name="keywords" content="">
 </head>
 
-<body>
-	<h1>Laravel Template</h1>
-	@if(isset($name) && isset($message))
-		Hello {{ $name }} {{ $message }}
-	@endif
+<body>	
+	<span>{{ $tasks->body }}</span>
 </body>
 
 </html>

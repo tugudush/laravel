@@ -8,11 +8,15 @@
 	<meta name="keywords" content="">
 </head>
 
-<body>
-	<h1>Laravel Template</h1>
-	@if(isset($name) && isset($message))
-		Hello {{ $name }} {{ $message }}
-	@endif
+<body>	
+	<h1>Tasks</h1>
+
+	<ul>
+		@foreach($tasks as $task)
+		<li><a href="/tasks/{{ $tasks->id }}">{{ $task->body }}</a></li>
+		@endforeach
+	</ul>
+
 </body>
 
 </html>
