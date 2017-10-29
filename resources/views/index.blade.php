@@ -8,6 +8,15 @@
 </head>
 <body>
   <h1>Laravel Template</h1>  
-  <?php echo 'Hello '.$name.' '.$message; ?>
+  Hello {{ $name }} {{ $message }}
+  
+  <h2>Tasks</h2>
+  
+  <ul>
+  @foreach($tasks as $task)
+    <li>{{ $task }}</li>
+  @endforeach
+  </ul>
+  
 </body>
 </html>

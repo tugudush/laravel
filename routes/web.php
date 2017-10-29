@@ -14,8 +14,17 @@
 Route::get('/', function () {
   $name = 'World!';
   $message = 'How are you?';
+  $tasks = [
+    'task 1',
+    'task 2',
+    'task 3'
+  ];
   
-  return view('index', compact('name', 'message')); // end of return view('index', [
+  return view('index', [
+    'name' => $name,
+    'message' => $message,
+    'tasks' => $tasks
+  ]); // end of return view('index', [
 }); // end of Route::get('/', function ()
 
 Route::get('/welcome', function () {
