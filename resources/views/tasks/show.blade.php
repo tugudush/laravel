@@ -8,7 +8,8 @@
 	<meta name="keywords" content="">
 </head>
 
-<body>	
+<body>
+	<a href="/tasks">Show all tasks</a><br>
 	<span>{{ $tasks->body }}</span>
 </body>
 
