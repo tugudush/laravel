@@ -11,27 +11,14 @@
 |
 */
 
-use App\Task;
-
 Route::get('/', function () {
 	$name = 'World!';
 	$message = 'How are you?';
 	return view('index', compact('name'));
 }); // end of Route::get('/', function ()
 
-Route::get('/tasks', function () {
-	//$tasks = DB::table('tasks')->get();
-	$tasks = Task::all();
-	return view('tasks.index', compact('tasks'));
-}); // end of Route::get('/', function ()
-
-Route::get('/tasks/{id}', function($id) {
-	//dd($id);
-	//$task = DB::table('tasks')->find($id);
-	$task = Task::find($id);
-	return view('tasks.show', compact('task'));
-}); // end of Route::get('/tasks/{task}', function($id)
-
+Route::get('/tasks', 'TasksController@index');
+Route::get('/tasks/{id}', 'TasksController@show');
 Route::get('/welcome', function () {
 	return view('welcome');
 }); // end of Route::get('/welcome', function ()
