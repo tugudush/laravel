@@ -10,7 +10,7 @@
 
 <body>
 	<a href="/tasks">Show all tasks</a><br>
-	<span>{{ $tasks->body }}</span>
+	<span>{{ $task->body }}</span>
 </body>
 
 </html>
