@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    //protected $table = 'tasks';
-}
+	
+	public function scopeIncomplete($query) {
+		return $query->where('completed', 0);
+	} // end of public static function incomplete()
+	
+} // end of class Task extends Model
