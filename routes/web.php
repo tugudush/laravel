@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {	
-	return view('index');
-}); // end of Route::get('/', function ()
+Route::get('/', 'PostsController@index');
+Route::get('/posts/{post}', 'PostsController@show');
 
 Route::get('/welcome', function () {
 	return view('welcome');
