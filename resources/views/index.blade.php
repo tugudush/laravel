@@ -9,10 +9,7 @@
 </head>
 
 <body>
-	<h1>Laravel Template</h1>
-	@if(isset($name) && isset($message))
-		Hello {{ $name }} {{ $message }}
-	@endif
+	<h1>Laravel Template</h1>	
 </body>
 
 </html>

@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-	$name = 'World!';
-	$message = 'How are you?';
-	return view('index', compact('name'));
+Route::get('/', function () {	
+	return view('index');
 }); // end of Route::get('/', function ()
 
-Route::get('/tasks', 'TasksController@index');
-Route::get('/tasks/{task}', 'TasksController@show');
 Route::get('/welcome', function () {
 	return view('welcome');
 }); // end of Route::get('/welcome', function ()
