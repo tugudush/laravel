@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
+	@include('layouts.styles')	
 </head>
 
 <body>
@@ -18,7 +19,8 @@
 	
 	<footer id="footer">
 		@include('layouts.footer')
-	</footer>	
+		@include('layouts.scripts')
+	</footer>
 </body>
 
 </html>
