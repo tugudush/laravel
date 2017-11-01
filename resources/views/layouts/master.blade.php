@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app()->getLocale() }}">
 
 <head>
-	<title>My Application</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	@include('layouts.styles')	
+	@include('layouts.meta-essentials')
+	@yield('meta-dynamic')
+	@include('layouts.styles')
+	
+	@include('layouts.header-scripts')
 </head>
 
 <body>
@@ -18,9 +18,10 @@
 	</div><!--/container-->
 	
 	<footer id="footer">
-		@include('layouts.footer')
-		@include('layouts.scripts')
+		@include('layouts.footer')	
 	</footer>
+	@include('layouts.footer-scripts')
+	@yield('page-specific-footer-scripts')
 </body>
 
 </html>
