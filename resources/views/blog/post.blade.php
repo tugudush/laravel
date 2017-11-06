@@ -8,7 +8,8 @@
 @endsection
 
 @section('content')
-	<h1>A place to show the post.</h1>
+	<h1 class="blog-post-title">{{ $post->title }}</h1>
+	{{ strip_tags($post->body) }}
 	<a href="/blog">Back to blogs posts...</a>
 @endsection
 
