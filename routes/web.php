@@ -21,4 +21,4 @@ Route::get('/welcome', function () {
 
 Route::get('/', 'PostsController@index');
 Route::get('/blog', 'PostsController@index');
-Route::get('/blog/{post}', 'PostsController@post');
+Route::get('/blog/post/{post}', 'PostsController@post');

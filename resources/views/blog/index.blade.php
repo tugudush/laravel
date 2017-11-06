@@ -10,8 +10,8 @@
 @section('content')
   @foreach($posts as $post)
     <div class="blog-post">
-      <a href="/blog/{{ $post->id }}"><h2 class="blog-post-title">{{ $post->title }}</h2></a>
-      {{ $post->body }}
+      <a href="/blog/post/{{ $post->id }}"><h2 class="blog-post-title">{{ $post->title }}</h2></a>
+      {!!$post->body!!}
     </div><!--/.blog-post-->
   @endforeach
 @endsection
