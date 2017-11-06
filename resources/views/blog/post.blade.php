@@ -1,4 +1,4 @@
-@extends('layouts.default.master')
+@extends('layouts.blog.master')
 
 @section('meta-dynamic')
 	<title>Single Blog Post</title>	
