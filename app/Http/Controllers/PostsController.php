@@ -21,4 +21,13 @@ class PostsController extends Controller
   public function create() {
     return view('blog.create');
   } // end of public function show()
+  
+  public function store() {
+    //dd(request()->all());
+    $post = new Post;
+    $post->title = request('title');
+    $post->body = request('body');
+    $post->save();
+    return redirect('/');
+  }
 } // end of class PostsController extends Controller
