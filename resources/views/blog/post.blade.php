@@ -9,7 +9,7 @@
 
 @section('content')
 	<h1>A place to show the post.</h1>
-	<a href="/posts">Back to blogs posts...</a>
+	<a href="/blog">Back to blogs posts...</a>
 @endsection
 
 
