@@ -1,18 +1,21 @@
 @extends('layouts.blog.master')
 
 @section('meta-dynamic')
-  <title>Single Blog Post</title>	
-  <meta name="description" content="Laravel test">
+  <title>Single Post</title>	
+  <meta name="description" content="Single post">
   <meta name="author" content="Jerome Gomez">
   <meta name="keywords" content="">
 @endsection
 
 @section('content')
-  <h1 class="blog-post-title">{{ $post->title }}</h1>
-  {!!$post->body!!}
-  <a href="/blog">Back to blogs posts...</a>
-@endsection
+  <div class="col-sm-8 blog-main">    
+      <div class="blog-post">
+        <h1 class="blog-post-title">{{ $post->title }}</h1>
+        {!!$post->body!!}
+      </div><!--/.blog-post-->    
+  </div><!--/.blog-main-->
 
+@endsection
 
 @section('page-specific-footer-scripts')
   <script>

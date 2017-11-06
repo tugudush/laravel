@@ -2,18 +2,21 @@
 
 @section('meta-dynamic')
   <title>Blog Posts</title>	
-  <meta name="description" content="Laravel test">
+  <meta name="description" content="Blog posts">
   <meta name="author" content="Jerome Gomez">
   <meta name="keywords" content="">
 @endsection
 
 @section('content')
-  @foreach($posts as $post)
-    <div class="blog-post">
-      <a href="/blog/post/{{ $post->id }}"><h2 class="blog-post-title">{{ $post->title }}</h2></a>
-      {!!$post->body!!}
-    </div><!--/.blog-post-->
-  @endforeach
+  <div class="col-sm-8 blog-main">
+    @foreach($posts as $post)
+      <div class="blog-post">
+        <a href="/blog/post/{{ $post->id }}"><h2 class="blog-post-title">{{ $post->title }}</h2></a>
+        {!!$post->body!!}
+      </div><!--/.blog-post-->
+    @endforeach
+  </div><!--/.blog-main-->
+
 @endsection
 
 @section('page-specific-footer-scripts')
