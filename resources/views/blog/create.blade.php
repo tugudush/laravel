@@ -7,26 +7,49 @@
   <meta name="keywords" content="">
 @endsection
 
-@section('content')
+@section('content')  
   <div class="col-sm-8 blog-main">
-    <form action="/blog/posts" method="post">
+    AJAX Enabled: {{ $ajax_enabled }}
+    <?php
+    $action = ($ajax_enabled) ? '/blog/ajax_add_post' : '/blog/posts'
+    ?>
+    <form id="add-post-form" action="{{ $action }}" method="post">
       {{ csrf_field() }}
       <div class="form-group">
-        <input type="text" id="title" name="title" class="form-control" placeholder="Title"/>
+        <input type="text" id="input_title" name="title" class="form-control" placeholder="Title"/>
       </div><!--/.form-group-->
       <div class="form-group">
-        <textarea id="body" name="body" class="form-control" rows="8" placeholder="Content"></textarea>
+        <textarea id="input_body" name="body" class="form-control" rows="8" placeholder="Content"></textarea>
       </div><!--/.form-group-->
-      <button type="submit" class="btn btn-primary">Submit</button>      
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 @endsection
 
-@section('page-specific-footer-scripts')
+@section('page-footer-scripts')  
   <script>
-    $(function() {
-      var page_title = $('html').find('title').text();
-      console.log("Hi! I'm a page specific footer script for " + page_title);		
+    $(function() {      
+      @if($ajax_enabled)
+        console.log('ajax enabled!');
+        $('#add-post-form').submit(function(e) {
+          e.preventDefault();
+          console.log('form submitted!');
+
+          var action = $(this).attr('action');
+          console.log('action: '+action);
+
+          var data = $(this).serializeArray();
+          console.log(data);
+
+          $.post(action, data, function(response) {
+            console.log('response:');
+            console.log(response);
+          }); // end of $.post(action, data, function()
+
+        });// end of $('#add-post-form').submit(function(e)
+      @else
+        console.log('ajax disabled!');
+      @endif
     }); // end of $(function()		
   </script>
 @endsection

@@ -21,7 +21,7 @@
   
   @include('layouts.blog.footer')
   @include('layouts.blog.footer-scripts')
-  @yield('page-specific-footer-scripts')
+  @yield('page-footer-scripts')
 </body>
 
 </html>
