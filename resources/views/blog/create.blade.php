@@ -15,7 +15,7 @@
 @endsection
 
 @section('content')  
-  <div class="col-sm-8 blog-main">    
+  <div class="col-sm-12 blog-main">    
     <?php
     $ajax_enabled = env('AJAX_ENABLED', false);    
     $action = ($ajax_enabled) ? '/blog/ajax_add_post' : '/blog/posts';

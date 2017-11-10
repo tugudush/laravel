@@ -13,9 +13,11 @@
   <body id="{{ $body_id }}" class="{{ $body_class }}">
     @include('layouts.blog.masthead')
 
+    <!--
     @if($body_id == 'page-home')
       @include('layouts.blog.header')
     @endif  
+    -->
 
     <div class="container">
       <div class="row">
