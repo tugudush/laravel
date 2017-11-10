@@ -10,7 +10,9 @@ use App\Post;
 class PostsController extends Controller
 {
   public function index() {
-    $posts = Post::all();
+    //$posts = Post::all();
+    $posts = Post::latest()->get();
+    $posts = Post::orderBy('created_at', 'desc')->get();
     return view('blog.index', compact('posts'));
   } // end of public function index()
 
