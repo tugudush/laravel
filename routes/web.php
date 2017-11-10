@@ -19,12 +19,14 @@ Route::get('/welcome', function () {
 //Route::get('/posts', 'PostsController@index');
 //Route::get('/posts/{post}', 'PostsController@show');
 
-Route::get('/', 'PostsController@index');
+Route::get('/', ['as' => 'index', 'uses' => 'PostsController@index']);
 Route::get('/blog', 'PostsController@index');
 Route::get('/blog/posts', 'PostsController@index');
-Route::get('/blog/add-post', 'PostsController@create');
+
+Route::get('/blog/add-post', ['as' => 'add-post', 'uses' => 'PostsController@create']);
 Route::get('/blog/posts/create', 'PostsController@create');
 Route::get('/blog/posts/{post}', 'PostsController@post');
+
 Route::post('/blog/posts', 'PostsController@store');
 Route::post('/blog/ajax_add_post', 'PostsController@ajax_store');
 Route::post('/blog/posts/ajax_add_post', 'PostsController@ajax_store');

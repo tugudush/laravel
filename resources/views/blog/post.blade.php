@@ -1,5 +1,12 @@
 @extends('layouts.blog.master')
 
+@section('header-php')
+  <?php
+  $body_id = 'page-single-post';
+  $body_class = '';
+  ?>
+@endsection
+
 @section('meta-dynamic')
   <title>Single Post</title>	
   <meta name="description" content="Single post">
@@ -14,7 +21,6 @@
         {!!$post->body!!}
       </div><!--/.blog-post-->    
   </div><!--/.blog-main-->
-
 @endsection
 
 @section('page-specific-footer-scripts')

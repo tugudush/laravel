@@ -1,3 +1,4 @@
+@yield('header-php')
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 
@@ -9,9 +10,12 @@
   @include('layouts.blog.header-scripts')
 </head>
 
-<body>
+<body id="{{ $body_id }}" class="{{ $body_class }}">
   @include('layouts.blog.masthead')
-  @include('layouts.blog.header')
+  
+  @if($body_id == 'page-home')
+    @include('layouts.blog.header')
+  @endif  
 
   <div class="container">
     <div class="row">

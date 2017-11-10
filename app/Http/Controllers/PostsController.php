@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 use App\Post;
 
 
@@ -19,28 +20,39 @@ class PostsController extends Controller
   } // end of public function show()
   
   public function create() {
-    $ajax_enabled = true;
-    return view('blog.create', compact('ajax_enabled'));
+    //$ajax_enabled = false;
+    //return view('blog.create', compact('ajax_enabled'));
+    return view('blog.create');
   } // end of public function show()
   
   public function store() {
     //dd(request()->all());
+    
+    $this->validate(request(), [
+      'title' => 'required',
+      'body'  => 'required'
+    ]); // end of $this->validate(request(), [
+    
     $post = new Post;
     $post->title = request('title');
     $post->body = request('body');
-    $post->save();
-    //$response['is_success'] = true;
-    //echo json_encode($response);
+    $post->save();    
     return redirect('/');
   } // end of public function store()
   
   public function ajax_store() {
-    $post = new Post;
-    //$post->title = request('title');
-    //$post->body = request('body');
-    $post::create(request()->all());
-    //$post->save();
-    $response['is_success'] = true;
+    try {
+      $post = new Post;
+      $post->title = request('title');
+      $post->body = request('body');
+      //$post::create(request()->all());
+      $post->save();    
+      $response['is_success'] = true;
+    } // end of elseif(!count($errors))    
+    catch(QueryException $e) {
+      $response['error_message'] = $e->getMessage();
+      $response['is_success'] = false;
+    }
     echo json_encode($response);
   } // end of public function ajax_store()
 
