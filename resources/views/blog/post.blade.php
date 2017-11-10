@@ -19,6 +19,21 @@
       <div class="blog-post">
         <h1 class="blog-post-title">{{ $post->title }}</h1>
         {!!$post->body!!}
+        
+        <hr>
+        
+        <div class="comments">
+          <ul class="list-group">
+            @foreach($post->comments as $comment)
+              <li class="list-group-item">
+                <article>
+                  {{ $comment->body }}
+                </article>
+              </li>
+            @endforeach
+          </ul><!--/.list-group-->
+          
+        </div><!--/.comments-->
       </div><!--/.blog-post-->    
   </div><!--/.blog-main-->
 @endsection

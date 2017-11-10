@@ -1,5 +1,10 @@
+html {    
+    
+}
+
 body {
 	/* font-family: 'Roboto', sans-serif; */
+	
 }
 
 a .blog-post-title {
@@ -8,4 +13,12 @@ a .blog-post-title {
 
 .form-control {
   
+}
+
+.comments {
+	font-size: 0.77rem;
+}
+
+.comments article:before {
+	
 }
