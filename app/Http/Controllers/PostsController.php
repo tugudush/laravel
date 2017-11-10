@@ -42,12 +42,20 @@ class PostsController extends Controller
   
   public function ajax_store() {
     try {
+      //$post::create(request()->all());
       $post = new Post;
       $post->title = request('title');
       $post->body = request('body');
-      //$post::create(request()->all());
-      $post->save();    
-      $response['is_success'] = true;
+      
+      if(empty($post->title) || empty($post->body)) {
+        $response['is_success'] = false;
+        $response['error_message'] = 'Please fill up the required fields';
+      } // end of if(empty($post->title) || empty($post->body))
+      else { // if not empty
+        $post->save();
+        $response['is_success'] = true;
+      } // end of else if not empty
+      
     } // end of elseif(!count($errors))    
     catch(QueryException $e) {
       $response['error_message'] = $e->getMessage();

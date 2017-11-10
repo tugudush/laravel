@@ -23,27 +23,19 @@
     
     AJAX ENABLED: {{ $ajax_enabled }}
     
-    @if(count($errors))
-      <div class="alert alert-danger">
-        <ul>
-          @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div><!--/.alert.alert-error-->
-    @endif
+    @include('layouts.blog.errors')
     
-    <div class="ajax-alert">
+    <div id="ajax-alert">
       
     </div><!--/.ajax-alert-->
     
     <form id="add-post-form" action="{{ $action }}" method="post">
       {{ csrf_field() }}
       <div class="form-group">
-        <input type="text" id="input_title" name="title" class="form-control" placeholder="Title"/>
+        <input type="text" id="input_title" name="title" class="form-control" placeholder="Title" required/>
       </div><!--/.form-group-->
       <div class="form-group">
-        <textarea id="input_body" name="body" class="form-control" rows="8" placeholder="Content"></textarea>
+        <textarea id="input_body" name="body" class="form-control" rows="8" placeholder="Content" required></textarea>
       </div><!--/.form-group-->
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -72,11 +64,15 @@
             
             var is_success = response_obj.is_success;            
             console.log('is_success: '+is_success);
+            $('#ajax-alert').html('post submitted');
             
             var error_message = response_obj.error_message;            
             
             if (typeof error_message !== 'undefined') {
-              console.log('error_message: '+error_message);  
+              console.log('error_message: '+error_message);
+              $('#ajax-alert').addClass('alert');
+              $('#ajax-alert').addClass('alert-danger');
+              $('#ajax-alert').html(error_message);
             } // end of if (typeof error_message !== 'undefined')
             
           }); // end of $.post(action, data, function()
