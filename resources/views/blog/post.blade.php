@@ -51,7 +51,7 @@
               {{ csrf_field() }}
               {{--  <input type="hidden" name="post_id" value="{{ $post->id }}">  --}}
               <div class="form-group">
-                <textarea name="comment_box" class="comment-box form-control" rows="5" placeholder="Comment" required></textarea>
+                <textarea name="comment_box" class="comment-box form-control" rows="5" placeholder="Comment"></textarea>
               </div><!--/.form-group-->
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Add Comment</button>
