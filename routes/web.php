@@ -36,3 +36,7 @@ Route::post('/posts/ajax_add_post', 'PostsController@ajax_store');
 // Add Comment Process
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 //Route::post('/ajax_add_comment', 'CommentsController@ajax_store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
