@@ -19,14 +19,20 @@ Route::get('/welcome', function () {
 //Route::get('/posts', 'PostsController@index');
 //Route::get('/posts/{post}', 'PostsController@show');
 
+// View Posts
 Route::get('/', ['as' => 'index', 'uses' => 'PostsController@index']);
-Route::get('/blog', 'PostsController@index');
-Route::get('/blog/posts', 'PostsController@index');
+Route::get('/posts', 'PostsController@index');
 
-Route::get('/blog/add-post', ['as' => 'add-post', 'uses' => 'PostsController@create']);
-Route::get('/blog/posts/create', 'PostsController@create');
-Route::get('/blog/posts/{post}', 'PostsController@post');
+// Add Post Form
+Route::get('/posts/create', ['as' => 'add-post', 'uses' => 'PostsController@create']);
 
-Route::post('/blog/posts', 'PostsController@store');
-Route::post('/blog/ajax_add_post', 'PostsController@ajax_store');
-Route::post('/blog/posts/ajax_add_post', 'PostsController@ajax_store');
+// Single Post
+Route::get('/posts/{post}', 'PostsController@post');
+
+// Add Post Process
+Route::post('/posts', 'PostsController@store');
+Route::post('/posts/ajax_add_post', 'PostsController@ajax_store');
+
+// Add Comment Process
+Route::post('/posts/{post}/comments', 'CommentsController@store');
+//Route::post('/ajax_add_comment', 'CommentsController@ajax_store');

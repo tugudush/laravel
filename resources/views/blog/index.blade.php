@@ -18,7 +18,7 @@
   <div class="col-sm-12 blog-main">
     @foreach($posts as $post)
       <div class="blog-post">
-        <a href="/blog/posts/{{ $post->id }}"><h2 class="blog-post-title">{{ $post->title }}</h2></a>
+        <a href="/posts/{{ $post->id }}"><h2 class="blog-post-title">{{ $post->title }}</h2></a>
         {{--  <p class="blog-post-meta">{{ $post->created_at->toFormattedDateString() }}</p>  --}}
         <p class="blog-post-meta">{{ $post->created_at->toDayDateTimeString() }}</p>
         {!!$post->body!!}

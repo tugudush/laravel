@@ -2,6 +2,8 @@
 
 @section('header-php')
   <?php
+  $ajax_enabled = env('AJAX_ENABLED', false);    
+  $action = ($ajax_enabled) ? '/posts/ajax_add_post' : '/posts';
   $body_id = 'page-add-post';
   $body_class = '';
   ?>
@@ -15,11 +17,7 @@
 @endsection
 
 @section('content')  
-  <div class="col-sm-12 blog-main">    
-    <?php
-    $ajax_enabled = env('AJAX_ENABLED', false);    
-    $action = ($ajax_enabled) ? '/blog/ajax_add_post' : '/blog/posts';
-    ?>
+  <div class="col-sm-12 blog-main">
     
     AJAX ENABLED: {{ $ajax_enabled }}
     
@@ -42,7 +40,7 @@
   </div>
 @endsection
 
-@section('page-footer-scripts')  
+@section('page-footer-scripts')
   <script>
     $(function() {      
       @if($ajax_enabled)

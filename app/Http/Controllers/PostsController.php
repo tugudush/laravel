@@ -38,7 +38,8 @@ class PostsController extends Controller
     $post = new Post;
     $post->title = request('title');
     $post->body = request('body');
-    $post->save();    
+    $post->save();
+    
     return redirect('/');
   } // end of public function store()
   
