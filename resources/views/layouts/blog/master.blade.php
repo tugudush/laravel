@@ -6,7 +6,6 @@
   @include('layouts.blog.meta-essentials')
   @yield('meta-dynamic')
   @include('layouts.blog.styles')
-
   @include('layouts.blog.header-scripts')
 </head>
 
@@ -27,6 +26,7 @@
   </div><!--/.container-->
   
   @include('layouts.blog.footer')
+  @include('logout')
   @include('layouts.blog.footer-scripts')
   @yield('page-footer-scripts')
 </body>

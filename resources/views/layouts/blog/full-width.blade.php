@@ -26,6 +26,7 @@
     </div><!--/.container-->
 
     @include('layouts.blog.footer')
+    @include('logout')
     @include('layouts.blog.footer-scripts')
     @yield('page-footer-scripts')
   </body>

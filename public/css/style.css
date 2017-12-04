@@ -15,6 +15,18 @@ a .blog-post-title {
   
 }
 
+/*** Nav Header ***/
+
+.nav {
+	display: block;
+}
+
+.nav-link {
+	display: inline-block;
+}
+
+/*** End of Nav Header ***/
+
 /*** Comments ***/
 
 .comments {

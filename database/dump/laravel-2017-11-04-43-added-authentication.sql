@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-11-23 18:37:58
+Date: 2017-12-05 04:44:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,16 +26,19 @@ CREATE TABLE `comments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of comments
 -- ----------------------------
-INSERT INTO `comments` VALUES ('1', '2', 'great', '2017-11-23 18:36:40', '2017-11-23 18:36:40');
-INSERT INTO `comments` VALUES ('2', '4', 'hi', '2017-11-23 18:36:46', '2017-11-23 18:36:46');
-INSERT INTO `comments` VALUES ('3', '4', 'hello', '2017-11-23 18:36:49', '2017-11-23 18:36:49');
-INSERT INTO `comments` VALUES ('4', '3', 'hmmm...', '2017-11-23 18:36:56', '2017-11-23 18:36:56');
-INSERT INTO `comments` VALUES ('5', '1', 'really?', '2017-11-23 18:37:04', '2017-11-23 18:37:04');
+INSERT INTO `comments` VALUES ('1', '2', 'test comment', '2017-11-23 19:08:22', '2017-11-23 19:08:22');
+INSERT INTO `comments` VALUES ('2', '1', 'test 123', '2017-11-23 19:08:28', '2017-11-23 19:08:28');
+INSERT INTO `comments` VALUES ('3', '2', 'hi', '2017-11-23 19:10:55', '2017-11-23 19:10:55');
+INSERT INTO `comments` VALUES ('4', '2', 'jacob', '2017-11-23 19:11:22', '2017-11-23 19:11:22');
+INSERT INTO `comments` VALUES ('5', '2', 'dsdfg', '2017-11-23 19:34:41', '2017-11-23 19:34:41');
+INSERT INTO `comments` VALUES ('6', '2', 'aaaa', '2017-11-23 19:34:43', '2017-11-23 19:34:43');
+INSERT INTO `comments` VALUES ('7', '1', 'fffff', '2017-11-23 19:35:09', '2017-11-23 19:35:09');
+INSERT INTO `comments` VALUES ('8', '2', 'f', '2017-11-23 19:40:20', '2017-11-23 19:40:20');
 
 -- ----------------------------
 -- Table structure for `migrations`
@@ -83,15 +86,14 @@ CREATE TABLE `posts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of posts
 -- ----------------------------
-INSERT INTO `posts` VALUES ('1', 'Test Title', 'The quick brown fox jumps over the lazy dog near the bank of the river.', '2017-11-10 17:14:56', '2017-11-10 17:14:56');
-INSERT INTO `posts` VALUES ('2', 'Lorem Ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac sollicitudin turpis. Vestibulum ut felis eget orci vehicula rutrum vel vitae urna. Nam lacinia ipsum a libero faucibus sollicitudin. Maecenas quis metus at mauris pretium ultrices eu id erat. Pellentesque molestie varius tincidunt. Donec interdum facilisis felis nec laoreet. Praesent pretium fermentum diam, eu sodales purus pretium vitae.', '2017-11-10 17:17:31', '2017-11-10 17:17:31');
-INSERT INTO `posts` VALUES ('3', 'Test123', 'Test message', '2017-11-23 15:31:25', '2017-11-23 15:31:25');
-INSERT INTO `posts` VALUES ('4', 'test2', 'test', '2017-11-23 16:52:48', '2017-11-23 16:52:48');
+INSERT INTO `posts` VALUES ('1', 'Hello World!', 'Test Post', '2017-11-23 19:07:42', '2017-11-23 19:07:42');
+INSERT INTO `posts` VALUES ('2', 'Another Post', 'another test post', '2017-11-23 19:08:11', '2017-11-23 19:08:11');
+INSERT INTO `posts` VALUES ('3', 'jacob', 'jake', '2017-12-04 14:05:29', '2017-12-04 14:05:29');
 
 -- ----------------------------
 -- Table structure for `tasks`
@@ -124,8 +126,9 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
+INSERT INTO `users` VALUES ('1', 'jerome', 'jerome2kph@gmail.com', '$2y$10$Nj4mbR6S1fiKQmvpC4iLP.ndSauAneZuccylrM/IURXsqiYND55KG', 'DayFw6OZBjINZIPWSBqGsyoI25i35oGQpQDLfUXpuOXuuvs6bIuwhtHHE5y9', '2017-12-05 04:02:01', '2017-12-05 04:02:01');
