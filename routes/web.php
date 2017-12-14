@@ -37,11 +37,14 @@ Route::post('/posts/ajax_add_post', 'PostsController@ajax_store');
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 //Route::post('/ajax_add_comment', 'CommentsController@ajax_store');
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/register', ['as' => 'register', 'uses' => 'RegistrationController@create']);
 Route::post('/register', 'RegistrationController@store');
+
+Route::get('/login', ['as' => 'login', 'uses' => 'SessionsController@create']);
+Route::post('/login', 'SessionsController@store');
 
 Route::get('/logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);

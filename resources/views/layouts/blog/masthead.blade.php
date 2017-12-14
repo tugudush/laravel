@@ -3,7 +3,7 @@
     <nav class="nav blog-nav" style="width: 100%;">
       
         <a href="{{ URL::route('index') }}" class="nav-link active" href="#">Home</a>
-        @auth
+        @if(Auth::check())
           <a href="{{ URL::route('add-post') }}" class="nav-link" href="#">Add Post</a>      
           
           {{--
@@ -16,7 +16,11 @@
           --}}
 
           <a href="{{ URL::route('logout') }}" class="nav-link float-right">Logout</a>
-        @endauth
+        @else
+          @if(Route::current()->getName() != 'login')
+            <a href="{{ URL::route('login') }}" class="nav-link float-right">Login</a>
+          @endif          
+        @endif
     </nav>
   </div>
 </div>

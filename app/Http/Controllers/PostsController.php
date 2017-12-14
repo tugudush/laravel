@@ -12,7 +12,9 @@ class PostsController extends Controller
 {
 
   public function __construct() {
-    $this->middleware('auth')->except(['/', 'posts/create']);
+    $this->middleware('auth', [
+      'except' => ['index', 'post']
+    ]);
   } // end of public function __construct()
 
   public function index() {    
