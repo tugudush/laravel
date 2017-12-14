@@ -31,6 +31,7 @@
             @foreach($post->comments as $comment)
               <li class="list-group-item">
                 <span class="comment-body">
+                  {{ $comment->user->name }}: 
                   {{ $comment->body }}
                 </span><!--/.comment-body-->
                 <span class="comment-date">

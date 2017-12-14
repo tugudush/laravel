@@ -10,16 +10,16 @@ use App\Post;
 
 class PostsController extends Controller
 {
-  public function index() {
-    if (Auth::check()) {
-      //$posts = Post::all();
-      $posts = Post::latest()->get();
-      $posts = Post::orderBy('created_at', 'desc')->get();
-      return view('blog.index', compact('posts'));
-    }
-    else {
-      return view('auth.login');
-    }    
+
+  public function __construct() {
+    $this->middleware('auth')->except(['/', 'posts/create']);
+  } // end of public function __construct()
+
+  public function index() {    
+    //$posts = Post::all();
+    $posts = Post::latest()->get();
+    $posts = Post::orderBy('created_at', 'desc')->get();
+    return view('blog.index', compact('posts'));      
   } // end of public function index()
 
   public function post($id) {
@@ -29,8 +29,8 @@ class PostsController extends Controller
   
   public function create() {
     //$ajax_enabled = false;
-    //return view('blog.create', compact('ajax_enabled'));
-    return view('blog.create');
+    //return view('blog.create', compact('ajax_enabled'));    
+    return view('blog.create');     
   } // end of public function show()
   
   public function store() {
@@ -44,6 +44,7 @@ class PostsController extends Controller
     $post = new Post;
     $post->title = request('title');
     $post->body = request('body');
+    $post->user_id = auth()->id();
     $post->save();
     
     return redirect('/');
@@ -55,6 +56,7 @@ class PostsController extends Controller
       $post = new Post;
       $post->title = request('title');
       $post->body = request('body');
+      $post->user_id = auth()->id();
       
       if(empty($post->title) || empty($post->body)) {
         $response['is_success'] = false;

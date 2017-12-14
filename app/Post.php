@@ -12,18 +12,19 @@ class Post extends Model
     } // end of public function comments()
 
     public function user() {
-    return $this->belongsTo(User::class);
-} // end of public function user()
+        return $this->belongsTo(User::class);
+    } // end of public function user()
   
-    public function addComment($body) {
+    public function addComment($body, $user_id) {
 
-        $this->comments()->create(compact('body'));
-        /*
+        //$this->comments()->create(compact('body'));
+                
         Comment::create([
             'post_id' => $this->id,
-            'body' => $body
+            'user_id' => $user_id,
+            'body' => $body            
         ]);
-        */
+        
     } // end of public function addComment()
 
 } // end of class Post extends Model

@@ -18,7 +18,7 @@
   <div class="col-sm-12">
     <h1>Registration</h1>
 
-    <form>
+    <form action="/register" method="post">
       {{ csrf_field() }}
 
       <div class="form-group">
@@ -27,17 +27,26 @@
 
       <div class="form-group">
         <input type="text" id="email" name="email" class="form-control" placeholder="Email" required>
-      </div><!--/.form-group-->
-
-      <div class="form-group">
+      </div><!--/.form-group-->      <div class="form-group">
         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
       </div><!--/.form-group-->
 
       <div class="form-group">
-        <button type="submit" id="submit" name="submit" class="btn btn-primary">Login</button>
+        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
+      </div><!--/.form-group-->
+
+      <div class="form-group">
+        <button type="submit" id="submit" name="submit" class="btn btn-primary">Register</button>
       </div><!--/.form-group-->
 
     </form>
+
+    @include('layouts.blog.errors')
+    
+    <div id="ajax-alert">
+      
+    </div><!--/.ajax-alert-->
+
   </div><!--/.blog-main-->
 @endsection
 
