@@ -6,12 +6,16 @@
         @auth
           <a href="{{ URL::route('add-post') }}" class="nav-link" href="#">Add Post</a>      
           
+          {{--
           <a href="{{ URL::route('logout') }}"
             class="nav-link float-right"
             onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
             Logout
           </a>
+          --}}
+
+          <a href="{{ URL::route('logout') }}" class="nav-link float-right">Logout</a>
         @endauth
     </nav>
   </div>
