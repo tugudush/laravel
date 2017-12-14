@@ -30,7 +30,10 @@
     <form id="add-post-form" action="{{ $action }}" method="post">
       {{ csrf_field() }}
       <div class="form-group">
-        <input type="text" id="input_title" name="title" class="form-control" placeholder="Title" required/>
+        <div class="input-group">
+          <input type="text" id="input_title" name="title" class="form-control" placeholder="Title" required />
+          <span class="input-group-addon">*</span>
+        </div>
       </div><!--/.form-group-->
       <div class="form-group">
         <textarea id="input_body" name="body" class="form-control" rows="8" placeholder="Content" required></textarea>

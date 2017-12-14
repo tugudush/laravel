@@ -58,7 +58,7 @@ class PostsController extends Controller
       
       if(empty($post->title) || empty($post->body)) {
         $response['is_success'] = false;
-        $response['error_message'] = 'Please fill up the required fields';
+        $response['error_message'] = 'Please fill up all the input fields.';
       } // end of if(empty($post->title) || empty($post->body))
       else { // if not empty
         $post->save();

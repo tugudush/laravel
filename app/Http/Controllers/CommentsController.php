@@ -15,10 +15,7 @@ class CommentsController extends Controller
         'comment_box' => 'required'
       ]); // end of $this->validate(request(), [
 
-      //$post->addComment(request('comment_box'));
-      $post->comments()->create([
-        'body'=>request('commnent_box')
-      ]);
+      $post->addComment(request('comment_box'));   
 
       return back();
 

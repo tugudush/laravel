@@ -40,3 +40,6 @@ Route::post('/posts/{post}/comments', 'CommentsController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/register', ['as' => 'register', 'uses' => 'RegistrationController@create']);
+// Route::get('/login', ['as' => 'login', 'uses' => 'SessionsController@create']);
