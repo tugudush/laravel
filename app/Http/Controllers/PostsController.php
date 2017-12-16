@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use App\Post;
-
 
 class PostsController extends Controller
 {
@@ -18,10 +18,30 @@ class PostsController extends Controller
   } // end of public function __construct()
 
   public function index() {    
-    //$posts = Post::all();
-    $posts = Post::latest()->get();
-    $posts = Post::orderBy('created_at', 'desc')->get();
-    return view('blog.index', compact('posts'));      
+    //$posts = Post::all();    
+    $posts = Post::latest();
+    
+    if (!empty(request('month'))) {      
+      $month = request('month');
+      $month = Carbon::parse($month)->month;
+      $posts->whereMonth('created_at', $month);
+    }
+
+    if (!empty(request('year'))) {      
+      $year = request('year');
+      $year = Carbon::parse($year)->year;
+      $posts->whereYear('created_at', $year);
+    }
+
+    $posts = $posts->get();
+
+    $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) as "count"')      
+      ->groupBy('year', 'month')
+      ->orderByRaw('min(created_at) desc')
+      ->get()
+      ->toArray();
+
+    return view('blog.index', compact('posts', 'archives'));
   } // end of public function index()
 
   public function post($id) {
@@ -47,6 +67,7 @@ class PostsController extends Controller
     $post->title = request('title');
     $post->body = request('body');
     $post->user_id = auth()->id();
+    //$post->published = true;
     $post->save();
     
     return redirect('/');
@@ -59,6 +80,7 @@ class PostsController extends Controller
       $post->title = request('title');
       $post->body = request('body');
       $post->user_id = auth()->id();
+      //$post->published = true;
       
       if(empty($post->title) || empty($post->body)) {
         $response['is_success'] = false;

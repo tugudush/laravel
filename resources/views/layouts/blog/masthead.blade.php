@@ -16,10 +16,16 @@
           --}}
 
           <a href="{{ URL::route('logout') }}" class="nav-link float-right">Logout</a>
-        @else
+        @else          
+
           @if(Route::current()->getName() != 'login')
             <a href="{{ URL::route('login') }}" class="nav-link float-right">Login</a>
           @endif          
+
+          @if(Route::current()->getName() != 'register')
+            <a href="{{ URL::route('register') }}" class="nav-link float-right">Register</a>
+          @endif
+
         @endif
     </nav>
   </div>

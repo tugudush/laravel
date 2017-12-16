@@ -28,7 +28,7 @@
       </div><!--/.form-group-->
 
       <div class="form-group">
-        <button type="submit" id="submit" name="submit" class="btn btn-primary">Register</button>
+        <button type="submit" id="submit" name="submit" class="btn btn-primary">Login</button>
       </div><!--/.form-group-->
 
     </form>

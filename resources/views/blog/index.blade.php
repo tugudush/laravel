@@ -1,4 +1,4 @@
-@extends('layouts.blog.full-width')
+@extends('layouts.blog.master')
 
 @section('header-php')
   <?php
@@ -15,7 +15,17 @@
 @endsection
 
 @section('content')
-  <div class="col-sm-12 blog-main">
+  <div class="col-sm-8 blog-main">
+
+    Request Date:
+    <?php
+    if (!empty(request('month'))) {
+      echo request('month'). ' ';
+    }
+    if (!empty(request('year'))) {
+      echo request('year');
+    }
+    ?>
     @foreach($posts as $post)
       <div class="blog-post">
         <a href="/posts/{{ $post->id }}"><h2 class="blog-post-title">{{ $post->title }}</h2></a>
