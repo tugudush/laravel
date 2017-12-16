@@ -35,13 +35,15 @@ class PostsController extends Controller
 
     $posts = $posts->get();
 
-    $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) as "count"')      
-      ->groupBy('year', 'month')
-      ->orderByRaw('min(created_at) desc')
-      ->get()
-      ->toArray();
+    // $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) as "count"')      
+    //   ->groupBy('year', 'month')
+    //   ->orderByRaw('min(created_at) desc')
+    //   ->get()
+    //   ->toArray();
 
-    return view('blog.index', compact('posts', 'archives'));
+    //$archives = Post::archives();
+
+    return view('blog.index', compact('posts'));
   } // end of public function index()
 
   public function post($id) {

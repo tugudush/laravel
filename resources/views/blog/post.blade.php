@@ -1,4 +1,4 @@
-@extends('layouts.blog.full-width')
+@extends('layouts.blog.master')
 
 @section('header-php')
   <?php
@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-  <div class="col-sm-12 blog-main">
+  <div class="col-sm-8 blog-main">
       <div class="blog-post">
 
         <h1 class="blog-post-title">{{ $post->title }}</h1>

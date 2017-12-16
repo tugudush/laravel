@@ -1,4 +1,4 @@
-@extends('layouts.blog.full-width')
+@extends('layouts.blog.master')
 
 @section('header-php')
   <?php
@@ -17,7 +17,7 @@
 @endsection
 
 @section('content')  
-  <div class="col-sm-12 blog-main">
+  <div class="col-sm-8 blog-main">
     
     AJAX ENABLED: {{ $ajax_enabled }}
     

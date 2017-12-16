@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      view()->composer('layouts.blog.sidebar', function($view) {
+        $view->with('archives', \App\Post::archives());
+      }); // End of view()->composer('layouts.sidebar', function()
     }
 
     /**
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+      //
     }
 }
